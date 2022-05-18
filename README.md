@@ -27,8 +27,48 @@ Correlation coefficients are indicators of the strength of the linear relationsh
 
 # Program
 
+```python
+import numpy as np 
+import math
+x=[0,1,2,3,4,5]
+y=[0,1,2,3]
+p=[[0,0.01,0.03,0.05,0.07,0.09],
+[0.01,0.02,0.04,0.05,0.06,0.08],
+[0.01,0.03,0.05,0.05,0.05,0.06],
+[0.01,0.02,0.04,0.06,0.06,0.05]]
+px=np.sum(p,axis=0)
+py=np.sum(p,axis=1)
+Ex=np.inner(x,px)
+Ey=np.inner(y,py)
+px
+py
+Ex
+Ey
+Ex2=np.inner(np.square(x),px)
+Ex2
+Ey2=np.inner(np.square(y),py)
+Ey2
+vx=Ex2-Ex**2
+vx
+vy=Ey2-Ey**2
+vy
+sx=math.sqrt(vx)
+sy=math.sqrt(vy)
+Exy=0
+for i in range(4):
+    for j in range(6):
+        Exy=Exy+x[j]*y[i]*p[i][j]
+Exy
+Cov=Exy-Ex*Ey
+Cov
+r=Cov/(sx*sy)
+r
+print("The coefficient-correlation %0.4f"%r)
+```
 
 
+# Output : 
+![image](https://github.com/Ganesh517/FindingMarginalDistributions/blob/main/m3.png)
+# Results 
 
-# Results and Output : 
-
+Hence, a program To find marginal distributions and correation coefficient of joint probability mass funcition of two dimensional random variables is executed.
